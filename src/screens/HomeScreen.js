@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, FlatList, Button} from "react-native";
+import React, { useEffect, useState, useCallback } from "react";
+import { View, Text, FlatList, Button, TextInput} from "react-native";
+import { useFocusEffect } from "@react-navigation/native";
 
 import styles from "../styles/styles";
 
@@ -7,20 +8,54 @@ import { getPeople, deletePerson } from "../servers/peopleCrud";
 
 export default function HomeScreen({ navigation }){
     const [people, setPeople] = useState([]);
+    const [allPeople, setAllPeople] = useState([]);
+    const [searchText, setSearchText] = useState('');
 
     async function loadPeople() {
         const data = await getPeople();
 
         setPeople(data);
+        setAllPeople(data);
     }
 
+    const handleSearch = (text) => {
+    setSearchText(text);
+
+    if (text.trim() === '') {
+      setPeople(allPeople);
+      return;
+    }
+
+    const filtered = allPeople.filter((item) => {
+      const nomeCompleto = `${item.firstName} ${item.lastName}`.toLowerCase();
+      return nomeCompleto.includes(text.toLowerCase());
+    });
+
+    setPeople(filtered);
+  };
+
+    useFocusEffect(
+        useCallback(() => {
+            setSearchText('');
+            loadPeople();
+        }, [])
+    )
+/*
     useEffect(() => {
         loadPeople();
     }, []);
-
+*/
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Pessoas</Text>
+
+            <TextInput
+                style={styles.inputSearch}
+                placeholder="Pesquisar por nome..."
+                placeholderTextColor="#666"
+                value={searchText}
+                onChangeText={handleSearch}
+            />
 
             <Button
                 title="Adicionar Pessoa"
@@ -53,6 +88,9 @@ function CardPersonal({item, navigation, refresh}) {
 
                 <Text style={styles.email}>
                     {item?.email}
+                </Text>
+                <Text style={styles.email}>
+                    {item?.phone}
                 </Text>
             </View>
 

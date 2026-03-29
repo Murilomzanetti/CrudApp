@@ -4,13 +4,85 @@
       "id": "1",
       "firstName": "João",
       "lastName": "Silva",
-      "email": "joao@email.com"
+      "email": "joao@email.com",
+      "phone": "8329898992829829"
     },
     {
-      "id": "d625",
       "firstName": "Pao",
       "lastName": "Pao",
-      "email": "Pao"
+      "email": "Pao",
+      "phone": "832989899282982",
+      "id": "d625"
+    },
+    {
+      "firstName": "Arroz",
+      "lastName": "Bendito",
+      "email": "C",
+      "phone": "19929292929",
+      "id": "b096"
+    },
+    {
+      "id": "2",
+      "firstName": "Maria",
+      "lastName": "Oliveira",
+      "email": "maria.oli@tech.com",
+      "phone": "11977665544"
+    },
+    {
+      "id": "3",
+      "firstName": "Lucas",
+      "lastName": "Souza",
+      "email": "lucas.dev@web.br",
+      "phone": "21966554433"
+    },
+    {
+      "id": "4",
+      "firstName": "Ana",
+      "lastName": "Costa",
+      "email": "ana.costa@cloud.io",
+      "phone": "31955443322"
+    },
+    {
+      "id": "5",
+      "firstName": "Pedro",
+      "lastName": "Sampaio",
+      "email": "pedrinho@email.com",
+      "phone": "41944332211"
+    },
+    {
+      "id": "6",
+      "firstName": "Beatriz",
+      "lastName": "Nunes",
+      "email": "bia.nunes@servicos.com",
+      "phone": "51933221100"
+    },
+    {
+      "id": "7",
+      "firstName": "Marcos",
+      "lastName": "Henrique",
+      "email": "marcos.h@empresa.com",
+      "phone": "61922110099"
+    },
+    {
+      "id": "8",
+      "firstName": "Julia",
+      "lastName": "Lopes",
+      "email": "ju.lopes@app.com",
+      "phone": "71911009988"
+    },
+    {
+      "id": "9",
+      "firstName": "Ricardo",
+      "lastName": "Alves",
+      "email": "ric.alves@provider.net",
+      "phone": "81999887766"
+    },
+    {
+      "id": "10",
+      "firstName": "Fernanda",
+      "lastName": "Lima",
+      "email": "fer.lima@startup.com",
+      "phone": "91988776655"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
