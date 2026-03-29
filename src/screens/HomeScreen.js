@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { View, Text, FlatList, Button, TextInput} from "react-native";
+import { View, Text, FlatList, Button, TextInput, TouchableOpacity} from "react-native";
 import { useFocusEffect } from "@react-navigation/native";
 
 import styles from "../styles/styles";
@@ -19,19 +19,19 @@ export default function HomeScreen({ navigation }){
     }
 
     const handleSearch = (text) => {
-    setSearchText(text);
+        setSearchText(text);
 
-    if (text.trim() === '') {
-      setPeople(allPeople);
-      return;
-    }
+        if (text.trim() === '') {
+        setPeople(allPeople);
+        return;
+        }
 
-    const filtered = allPeople.filter((item) => {
-      const nomeCompleto = `${item.firstName} ${item.lastName}`.toLowerCase();
-      return nomeCompleto.includes(text.toLowerCase());
-    });
+        const filtered = allPeople.filter((item) => {
+        const nomeCompleto = `${item.firstName} ${item.lastName}`.toLowerCase();
+        return nomeCompleto.includes(text.toLowerCase());
+        });
 
-    setPeople(filtered);
+        setPeople(filtered);
   };
 
     useFocusEffect(
@@ -50,17 +50,19 @@ export default function HomeScreen({ navigation }){
             <Text style={styles.title}>Pessoas</Text>
 
             <TextInput
-                style={styles.inputSearch}
+                style={styles.input}
                 placeholder="Pesquisar por nome..."
                 placeholderTextColor="#666"
                 value={searchText}
                 onChangeText={handleSearch}
             />
 
-            <Button
-                title="Adicionar Pessoa"
+            <TouchableOpacity 
+                style={styles.addButton}
                 onPress={() => navigation.navigate("AddEdit")}
-            />
+            >
+                <Text style={styles.addButtonText}>Adicionar Pessoas</Text>
+            </TouchableOpacity>
 
             <FlatList 
                 data={people}
@@ -81,7 +83,7 @@ export default function HomeScreen({ navigation }){
 function CardPersonal({item, navigation, refresh}) {
     return(
         <View style={styles.card}>
-            <View>
+            <View style={styles.infoContainer}>
                 <Text style={styles.name}>
                     {item?.firstName} {item?.lastName}
                 </Text>
@@ -94,18 +96,22 @@ function CardPersonal({item, navigation, refresh}) {
                 </Text>
             </View>
 
-            <View>
-                <Button 
-                    title="Editar"
-                    onPress={() => navigation.navigate("AddEdit", {person:item})}
-                />
-                <Button 
-                    title="Deletar"
+            <View style={styles.actionButtons}>
+                <TouchableOpacity 
+                    style={styles.btnEdit}
+                    onPress={() => navigation.navigate("AddEdit", { person: item })}
+                >
+                    <Text style={styles.btnText}>Editar</Text>
+                </TouchableOpacity>
+                <TouchableOpacity 
+                    style={styles.btnDelete}
                     onPress={async () => {
                         await deletePerson(item.id);
                         refresh();
                     }}
-                />
+                >
+                    <Text style={styles.btnText}>Excluir</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );

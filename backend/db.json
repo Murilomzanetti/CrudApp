@@ -8,20 +8,6 @@
       "phone": "8329898992829829"
     },
     {
-      "firstName": "Pao",
-      "lastName": "Pao",
-      "email": "Pao",
-      "phone": "832989899282982",
-      "id": "d625"
-    },
-    {
-      "firstName": "Arroz",
-      "lastName": "Bendito",
-      "email": "C",
-      "phone": "19929292929",
-      "id": "b096"
-    },
-    {
       "id": "2",
       "firstName": "Maria",
       "lastName": "Oliveira",
@@ -29,11 +15,11 @@
       "phone": "11977665544"
     },
     {
-      "id": "3",
       "firstName": "Lucas",
       "lastName": "Souza",
-      "email": "lucas.dev@web.br",
-      "phone": "21966554433"
+      "email": "lucas.dev@web.com.br",
+      "phone": "21966554433",
+      "id": "3"
     },
     {
       "id": "4",

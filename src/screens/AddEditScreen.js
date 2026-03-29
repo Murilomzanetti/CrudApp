@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TextInput, Button } from "react-native";
+import { View, Text, TextInput, Button, TouchableOpacity } from "react-native";
 
 import styles from "../styles/styles";
 
@@ -26,39 +26,45 @@ export default function AddEditScreen({ route, navigation }) {
 
     return(
         <View style={styles.container}>
+            <Text style={styles.title}>
+                {person ? "Editar Pessoa" : "Nova Pessoa"}
+            </Text>
+
             <TextInput 
+                style={styles.input}
                 placeholder="First Name"
                 value={firstName}
                 onChangeText={setFirstName}
             />
 
             <TextInput 
+                style={styles.input}
                 placeholder="Last Name"
                 value={lastName}
                 onChangeText={setLastName}
             />
 
             <TextInput 
+                style={styles.input}
                 placeholder="Email"
                 value={email}
                 onChangeText={setEmail}
             />
 
             <TextInput 
+                style={styles.input}
                 placeholder="Phone"
                 value={phone}
                 onChangeText={setPhone}
             />
 
-            <Button 
-                title= "Salvar"
-                onPress={save}
-            />
+            <TouchableOpacity style={styles.btnSave} onPress={save}>
+                <Text style={styles.buttonText}>SALVAR</Text>
+            </TouchableOpacity>
 
-            <Button 
-                title= "Cancelar"
-                onPress={() => navigation.goBack()}
-            />
+            <TouchableOpacity style={styles.btnCancel} onPress={() => navigation.goBack()}>
+                <Text style={styles.buttonText}>CANCELAR</Text>
+            </TouchableOpacity>
         </View>
     );
 
