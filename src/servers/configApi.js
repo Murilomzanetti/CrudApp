@@ -1,1 +1,1 @@
-export const API_URL = "https://tidy-wings-search.loca.lt";
+export const API_URL = "https://lucky-regions-deny.loca.lt";

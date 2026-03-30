@@ -10,7 +10,8 @@ export default StyleSheet.create({
     title: {
         fontSize: 22,
         textAlign: "center",
-        marginBottom: 20
+        marginBottom: 20,
+        color: "#fff"
     },
 
     addButton: {
