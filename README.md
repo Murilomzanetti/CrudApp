@@ -58,3 +58,10 @@ Agora, execute o Expo limpando o cache e forçando o modo túnel:
 npx expo start -c --tunnel
 ```
 Escaneie o QR Code usando o app Expo Go no seu celular.
+
+### 5. Vídeo Demonstração
+Se desejar apenas ver o vídeo demonstração, segue o link do Youtube:
+
+```bash
+https://youtube.com/shorts/lVVRdJ8Gch0
+```
